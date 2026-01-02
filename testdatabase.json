@@ -1,0 +1,16 @@
+{
+    "entryList": [
+        {
+            "entryId": 1,
+            "entryDate": "02/01/2026",
+            "entryTitle": "My First Blog Entry",
+            "entryText": "Hello world, this is my first blog entry"
+        },
+        {
+            "entryId": 2,
+            "entryDate": "02/01/2026",
+            "entryTitle": "My Second Blog Entry",
+            "entryText": "Hello world, this is my second blog entry"
+        }
+    ]
+}

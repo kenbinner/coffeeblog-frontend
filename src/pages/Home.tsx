@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Entry from './components/Entry';
+import axios from 'axios';
 
 type Entry = {
     entryId: number;
@@ -9,21 +10,34 @@ type Entry = {
 }
 
 const Home: React.FC = () => {
+    const [entryList, setEntryList] = useState<Entry[]>([]);
 
-    const entryList: Entry[] = [
-        {
-            entryId: 1,
-            entryDate: "02/01/2026",
-            entryTitle: "My First Blog Entry",
-            entryText: "Hello world, this is my first blog entry"
-        },
-        {
-            entryId: 2,
-            entryDate: "02/01/2026",
-            entryTitle: "My Second Blog Entry",
-            entryText: "Hello world, this is my first blog entry"
-        }
-    ]
+    useEffect(() => {
+        axios
+            .get("http://localhost:4000/entryList")
+            .then((response) => {
+                console.log(response.data);
+                setEntryList(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }, []);
+
+    // const entryList: Entry[] = [
+    //     {
+    //         entryId: 1,
+    //         entryDate: "02/01/2026",
+    //         entryTitle: "My First Blog Entry",
+    //         entryText: "Hello world, this is my first blog entry"
+    //     },
+    //     {
+    //         entryId: 2,
+    //         entryDate: "02/01/2026",
+    //         entryTitle: "My Second Blog Entry",
+    //         entryText: "Hello world, this is my first blog entry"
+    //     }
+    // ]
 
     return (
         <div>
